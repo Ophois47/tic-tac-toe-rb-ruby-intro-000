@@ -141,4 +141,3 @@ def play
     puts "A Tie!!"
   end
 end
-
