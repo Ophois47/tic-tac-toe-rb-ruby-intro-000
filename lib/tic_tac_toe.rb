@@ -95,3 +95,50 @@ def won?
 
   return false
 end
+
+def full?
+  @board.all? {|index| index == "X" || index == "O"}
+end
+
+def draw?
+  if !won? && full?
+    return true
+  else
+    return false
+  end
+end
+
+def over?
+  if won? || draw?
+    return true
+  else
+    return false
+  end
+end
+
+def winner
+  index = []
+  index = won?
+  if index == false
+    return nil
+  else
+    if @board[index[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
+
+def play
+  until over? == true
+    turn
+  end
+
+  if won?
+    puts "You did it #{winner}! You Won!"
+  elsif draw?
+    puts "A Tie!!"
+  end
+end
+
